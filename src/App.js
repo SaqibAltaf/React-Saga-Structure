@@ -1,24 +1,25 @@
-import logo from './logo.svg';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {Provider} from 'react-redux';
 import './App.css';
+import Signin from 'container/Signin';
+import Signup from 'container/Signup';
+import Page404 from 'container/ErrorPage/Page404';
+import { PrivateRoute } from 'PrivateRoute';
 
-function App() {
+function App({ store }) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Provider store={store}>
+        <Router>
+          <Switch>
+            <PrivateRoute exact path="/signin" component={Signin} />
+            <PrivateRoute exact path="/signup" component={Signup} />
+           
+            <Route path='*' exact component={Page404} />
+          </Switch>
+        </Router>
+      </Provider>
+    </>
   );
 }
 
