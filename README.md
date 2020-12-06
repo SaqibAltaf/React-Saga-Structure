@@ -5,7 +5,7 @@
 
 In the project directory, you can run:
 ### `Development and Production Environment`
-There will be two imported variable, just comment the required variable and enjoy it
+There will be two imported variable in config folder, just comment the required variable and enjoy it
 
 ### `yarn start`
 
